@@ -15,7 +15,7 @@ URL_REGEX = r"(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+"
 class MirrorStatus:
     STATUS_UPLOADING = "<📤𝘜𝘱𝘭𝘰𝘢𝘥𝘪𝘯𝘨 𝘛𝘰 𝘋𝘳𝘪𝘷𝘦...📬"
     STATUS_DOWNLOADING = "<b>📥𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨 𝘵𝘰 𝘎𝘋𝘳𝘪𝘷𝘦𝘍𝘭𝘪𝘹...📬</b>"
-    STATUS_WAITING = "<b>𝓠𝓾𝓮𝓾𝓮𝓭 📝</b>"
+    STATUS_WAITING = "𝓠𝓾𝓮𝓾𝓮𝓭 📝"
     STATUS_FAILED = "𝐅𝐚𝐢𝐥𝐞𝐝 🚫. 𝘊𝘭𝘦𝘢𝘯𝘪𝘯𝘨 𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥"
     STATUS_CANCELLED = "<b>𝘊𝘢𝘯𝘤𝘦𝘭𝘭𝘦𝘥 ❎</b>"
     STATUS_ARCHIVING = "<b>𝘈𝘳𝘤𝘩𝘪𝘷𝘪𝘯𝘨 🔐</b>"
@@ -23,7 +23,7 @@ class MirrorStatus:
 
 
 PROGRESS_MAX_SIZE = 100 // 8
-PROGRESS_INCOMPLETE = ['🚥', '🚥', '🚥', '🚥', '🚥', '🚥', '🚥']
+PROGRESS_INCOMPLETE = ['●', '●', '●', '●', '●', '●', '●']
 
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
@@ -80,10 +80,10 @@ def get_progress_bar_string(status):
     p = min(max(p, 0), 100)
     cFull = p // 8
     cPart = p % 8 - 1
-    p_str = '▓' * cFull
+    p_str = '●' * cFull
     if cPart >= 0:
         p_str += PROGRESS_INCOMPLETE[cPart]
-    p_str += '░' * (PROGRESS_MAX_SIZE - cFull)
+    p_str += '○' * (PROGRESS_MAX_SIZE - cFull)
     p_str = f"[{p_str}]"
     return p_str
 
