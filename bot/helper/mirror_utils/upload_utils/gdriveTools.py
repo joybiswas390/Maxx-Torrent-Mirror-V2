@@ -317,7 +317,7 @@ class GoogleDriveHelper:
             if meta.get("mimeType") == self.__G_DRIVE_DIR_MIME_TYPE:
                 dir_id = self.create_directory(meta.get('name'), parent_id)
                 result = self.cloneFolder(meta.get('name'), meta.get('name'), meta.get('id'), dir_id)
-                msg += f'<b>○ 🌀 Folder Name :</b> <code>{meta.get("name")}</code>\n\n<b>○ 💾 Size :</b> {get_readable_file_size(self.transferred_size)}'
+                msg += f'<b> 📂 Folder Name :</b> <code>{meta.get("name")}</code>\n\n<b> 💾 Size :</b> {get_readable_file_size(self.transferred_size)}'
                 buttons = button_build.ButtonMaker()
                 buttons.buildbutton("🌍 𝗚-𝗗𝗥𝗜𝗩𝗘 𝗨𝗥𝗟", self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id))
                 if INDEX_URL is not None:
@@ -331,11 +331,11 @@ class GoogleDriveHelper:
                     buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
             else:
                 file = self.copyFile(meta.get('id'), parent_id)
-                msg += f'<b>○ 🌀 File Name :</b> <code>{file.get("name")}</code>'
+                msg += f'<b>📋 File Name :</b> <code>{file.get("name")}</code>'
                 buttons = button_build.ButtonMaker()
                 buttons.buildbutton("🌍 𝗚-𝗗𝗥𝗜𝗩𝗘 𝗨𝗥𝗟", self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id")))
                 try:
-                    msg += f'\n\n<b>○ 💾 Total Size :</b> <code>{get_readable_file_size(int(meta.get("size")))}</code>\n\n🔹#Cloned To G-Drive Done✔️\n\n⛔ 𝗗𝗢 𝗡𝗢𝗧 𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗘 𝗜𝗡𝗗𝗘𝗫 𝗟𝗜𝗡𝗞 𝗔𝗡𝗬𝗪𝗛𝗘𝗥𝗘 𝗘𝗟𝗦𝗘!\n\n<b>○🛡️𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆:: @MDH_HINDI</b>'
+                    msg += f'\n\n<b>💾 Total Size :</b> <code>{get_readable_file_size(int(meta.get("size")))}</code>\n\n🔹Cloned To G-Drive Done! \n\n⛔ 𝐃𝐨 𝐍𝐨𝐭 𝐒𝐡𝐚𝐫𝐞 𝐈𝐭 𝐄𝐥𝐬𝐞𝐰𝐡𝐞𝐫𝐞!\n\n 🛡️𝑩𝒐𝒕 𝑩𝒚 : @gdriveflixbd'
                 except TypeError:
                     pass
                 if INDEX_URL is not None:
