@@ -98,7 +98,8 @@ def get_readable_message():
                 msg += f"\n{get_progress_bar_string(download)} <b>P</b>:<code>[{download.progress()}]</code>" \
                        f"\n𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞:<code>{get_readable_file_size(download.processed_bytes())}</code>" \
                        f"\n𝐒𝐩𝐞𝐞𝐝:<code>{download.speed()}</code>" \
-                       f"\n𝐄𝐓𝐀:<code>{download.eta()}]</code><b>Total Size</b>:<code>[{download.size()}</code>"
+                       f"\n𝐄𝐓𝐀:<code>{download.eta()}</code> \
+                f"\n<b>Total Size</b>:<code>{download.size()}</code>"
                 # if hasattr(download, 'is_torrent'):
                 try:
                     msg += f"\n𝑷𝒆𝒆𝒓𝒔:<code>{download.aria_download().connections}</code> " \
